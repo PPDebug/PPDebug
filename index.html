@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PPDebug</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="shortcut icon" href="_media/avatar.jpeg">
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <!-- gittalk -->
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+  <!-- DOT support -->
+  <script src="https://cdn.bootcss.com/viz.js/1.8.0/viz.js"></script>
+
+  <!-- latex support -->
+  <link href="https://cdn.bootcss.com/KaTeX/0.10.0/katex.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/KaTeX/0.10.0/katex.min.js"></script>
+
+  <!-- live2d -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+  <script src="plugins/live2d-widget/autoload.js"></script> -->
+
+</head>
+<body>
+  <div id="app">Please wait...</div>
+  <script>
+    window.$docsify = {
+      name: 'PPDebug',
+      // repo: 'http',
+      loadSidebar: true,
+      subMaxLevel: 3,
+      externalLinkTarget: '_blank',
+      loadNavbar: true,
+      coverpage: true,
+      executeScript: true,
+      themeColor: "#42b983",
+      search: {
+        paths: 'auto',
+        placeholder: '🔍 搜索',
+        noData: '😒 找不到结果',
+        // Headline depth, 1 - 6
+        depth: 6,
+        maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+      },//添加搜索框
+
+      // disqus: 'PPDebug',
+      
+      pagination: {
+        previoudText: "previous",
+        nextText: "next",
+        crossChapter: true,
+        crossChapterText: true
+      },
+
+      tabs: {
+        persist: true,
+        sync: true,
+        theme: "classic",
+        tabComments: true,
+        tabHeadings: true
+      },
+
+      markdown: {
+        renderer: {
+
+          code: function (code, lang) {
+            if (lang === 'drawio') {
+              if (window.drawioConverter) {
+                return window.drawioConverter(code)
+              } else {
+                return `<div class='drawio-code'>${code}</div>`
+              }
+            }
+            if (lang === "dot") {
+              return ('<div class="viz">' +  Viz(code, "SVG") + '</div>');   
+            }
+            if (lang === "tex") {
+              return (
+                "<span class=tex>" + 
+                katex.renderToString(code, {thorwOnError: false}) + 
+                "</span>"
+              )
+            };
+            return this.origin.code.apply(this, arguments);
+          }
+        }
+      }, 
+
+      chat: {
+        title: "Q & A",
+        users:[],
+        myself: 'PPDebug',
+        animation: 500,
+      },
+
+      progress: {
+        position: "top",
+        color: "var(--theme-color,#42b983)",
+        height: "3px",
+      },
+
+      formatUpdated: "{YYYY}/{MM}/{DD} {HH}:{mm}",
+
+      plugins: [
+        // footer
+        // function(hook) {
+        //   var footer = [
+        //     "<hr/>",
+        //     "<footer style='text-align:center'>",
+        //     "<span><a href='https://github.com/PPDebug'>PPDebug</a> &copy;2022.</span>",
+        //     '<span>Proudly published with <a href="https://github.com/docsifyjs/docsify" target="_blank">docsify</a>.</span>',
+        //     '</footer>'
+        //   ].join('');
+        //   hook.afterEach(function(html) {
+        //     return html + footer;
+        //   });
+        // },
+        // edit Button
+        function(hook, vm) {
+          hook.beforeEach(function(content) {
+            console.log(vm.config.repo);
+            var url =
+              'https://github.com/docsifyjs/docsify/blob/master/docs/' +
+              vm.route.file;
+            var editMD = '[📝 EDIT DOCUMENT](' + url + ')\n';
+
+            return (
+              editMD +
+              content +
+              '\n----\n ' +
+              'Last modified {docsify-updated} \n\n'
+            );
+          });
+        }
+      ],
+    }
+  </script>
+  <!-- Docsify v4 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <!-- plugins -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/external-script.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+  <!-- <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/disqus.min.js"></script> -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+  <!-- comment -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+  <script>
+    const gitalk = new Gitalk({
+      clientID: 'Github Application Client ID',
+      clientSecret: 'Github Application Client Secret',
+      repo: 'Github repo',
+      owner: 'Github repo owner',
+      admin: ['Github repo collaborators, only these guys can initialize github issues'],
+      // facebook-like distraction free mode
+      distractionFreeMode: false
+    })
+  </script>
+
+  <!-- drawio -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-drawio/viewer.min.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/docsify-drawio/drawio.js'></script>
+  <!-- mermaid -->
+  <script src="//unpkg.com/mermaid/dist/mermaid.js"></script>
+  <script src="//unpkg.com/docsify-mermaid@latest/dist/docsify-mermaid.js"></script>
+  <script>mermaid.initialize({ startOnLoad: true });</script>
+
+  <!-- Docsify Chat -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-chat/lib/docsify-chat.min.js"></script>
+  
+  <!-- code highlight -->
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-java.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-c.min.js"></script>
+
+  <!-- process -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-progress@latest/dist/progress.min.js"></script>
+  
+  <!-- back to top -->
+  <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/jquery.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/jquery.goup.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $.goup({
+        trigger: 100,
+        bottomOffset: 52,
+        locationOffset: 25,
+        // title: 'TOP',
+        // titleAsText: true
+      });
+    });
+  </script>
+
+</body>
+</html>

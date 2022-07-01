@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hello world page!</title>
+    <style>
+        /* change content to center */
+        #container {
+            position: absolute;
+            width: 400px;
+            height: 300px;
+            left: 50%;
+            top: 50%;
+            margin-left: -200px;
+            margin-top: -150px;
+            text-align: center;
+        }
+
+        /* two style */
+        .origin {
+            color: black;
+        }
+        .red {
+            color: red;
+        }
+
+         /* button style */
+        .opt {
+            width: 100%;
+            text-align: center;
+        }
+
+        button {
+            color: rgba(127,255,255,0.75);
+            background: transparent;
+            outline: 1px solid rgba(127,255,255,0.75);
+            border: 0px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgba(0,255,255,0.5);
+        }
+
+        button:active {
+            color: #000000;
+            background-color: rgba(0,255,255,0.75);
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1 id="hello">Hello World!</h1>
+        <div class="opt">
+            <button id="btn-change">变为红色</button>
+            <button id="btn-reset">复原</button>
+        </div>
+    </div>
+    
+    <script>
+        console.log("Hello world!");
+        const hello = document.getElementById("hello");
+
+        // add button click event
+        document.getElementById("btn-change").onclick = ()=>{
+            hello.className = "red";
+        }
+        document.getElementById("btn-reset").onclick = ()=> {
+            hello.className = "origin";
+        }
+    </script>
+</body>
+</html>

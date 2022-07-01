@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+}
+
+a {
+    color:aqua;
+}
+
+#info {
+    position: absolute;
+    color: aliceblue;
+    top: 30px;
+    width: 100%;
+    text-align: center;
+    z-index: 100;
+    display: block;
+}

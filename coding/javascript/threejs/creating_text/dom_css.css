@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+    position: relative;
+}
+#dom_css_info {
+    position: absolute;
+    color: aqua;
+    top: 10px;
+    width: 100%;
+    text-align: center;
+    z-index: 100;
+    display: block;
+}

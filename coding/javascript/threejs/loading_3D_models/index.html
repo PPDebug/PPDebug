@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>My first three.js app</title>
+        <!-- 样式表的路径 -->
+		<link rel="stylesheet" type="text/css" href="./index.css">
+	</head>
+	<body>
+        <!-- 使用模块化导入 -->
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "/plugins/three/src/Three.js"
+				}
+			}
+		</script>
+		<script type="module"  src="./index.js" ></script>
+	</body>
+</html>
