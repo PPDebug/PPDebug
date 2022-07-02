@@ -1,4 +1,4 @@
-# JavaFx 
+# JavaFX 
 > JavaFX是一个Java库，可以使用它开发富互联网应用程序,使用JavaFX可以有效利用丰富的类库来开发GUI应用程序。
 
 ## JavaFX的特性

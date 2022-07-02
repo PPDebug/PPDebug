@@ -30,5 +30,11 @@
 
 [下载地址](https://gluonhq.com/products/scene-builder/)
 
+找到安装路径下面的exe文件, 例如`C:\tool\JavaFX\SceneBuilder\SceneBuilder.exe`
+
+`file-> settings-> Languages&Frameworks ->JavaFX`将之前的安装路径复制到这里
+
+右键打开IDEA中的fxml文件，就会出现在SceneBuilder中打开选项
+
 
 
