@@ -18,7 +18,7 @@
 
 * [6.27 开营直播](/coding/javascript/baidu-summer-2022/)
 * [6.29 web前端概论](/coding/javascript/baidu-summer-2022/day-6-29/)
-* 7.1 HTML基础
+* [7.1 HTML基础](/coding/javascript/baidu-summer-2022/day-7-01/)
 * 7.4 CSS基础
 * 7.6 web布局(上)
 * 7.8 web布局(下)

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Message Demo</title>
+    <style>
+        body {
+            margin: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: bisque;  
+        }
+
+        .box-flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .item-flex {
+            flex-basis: 100%;
+            text-align: center;
+        }
+
+        #personpage-header {
+            color: #909399;
+            font-size: 24px;
+            padding-top: 10px;
+            width: 100%;
+        }
+        
+        #avatar {
+            padding-top: 20px;
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+        }
+
+        #name {
+            font-size:  20px;
+            color: #E6A23C;
+        }
+
+        #email {
+            font-size: 12px;
+            color: #909399;
+        }
+
+        .item-flex .icon {
+            color: #409EFF;
+            margin-left: 10px;
+            margin-right: 10px;
+            position: relative;
+        }
+
+        .item-flex .icon .sup{
+            background-color: #F56C6C;
+            width: 8px;
+            height: 8px;
+            border: 1px solid black;
+            border-radius: 50%;
+
+            font-size: 8px;
+            color: white;
+            text-align: center;
+
+            display: inline-block;
+            position: relative;
+            top:-10px;
+            left:-2px;
+            margin-right: -8px;
+        }
+
+        #more {
+            display: block;
+            margin-top: 20px;
+            background-color:rgb(233, 214, 190)
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="box-flex">
+        <div class="item-flex">
+            <div id="personpage-header">个人中心</div>
+            <div style="border: 1px solid #CCC"></div>
+        </div>
+        <div class="item-flex">
+            <img id="avatar" src="https://avatars.githubusercontent.com/u/72385054?v=4" alt="personal avatar">
+        </div>
+        <div class="item-flex">
+            <p id="name">彭鹏</p>
+        </div>
+        <div class="item-flex">
+            <p id="email">501858681@qq.com</p>
+        </div>
+        <div class="item-flex">
+            <span class="icon">&#9972</span>
+            <span class="icon">&#9960
+                <span class="sup">20</span>
+            </span>
+            <span class="icon">&#9851
+                <span class="sup">5</span>
+            </span>
+        </div>
+        <div class="item-flex">
+            <a><div id="more">展开显示动态信息<span> &#9660</span></div></a>
+        </div>
+    </div>
+
+
+    <article id="notebook"></article>
+
+
+    <article id="mailbox"></article>
+</body>
+</html>
