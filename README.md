@@ -1,6 +1,6 @@
 # PPDebug
 
-> An awesome project.
+> Learning...
 
 ## 目录
 
