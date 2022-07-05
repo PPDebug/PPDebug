@@ -4,7 +4,7 @@
 
 QQ：501858681
 
-[展示链接]()
+[展示链接](https://ppdebug.github.io/#/coding/javascript/baidu-summer-2022/day-7-04)
 
 ## 课程资料
 
