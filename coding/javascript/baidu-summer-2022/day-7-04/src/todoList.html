@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: bisque;
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+        }
+
+        #header {
+            height: 30px;
+            line-height: 30px;
+            font-size: 30px;
+            text-align: center;
+            flex-basis: 100%;
+        }
+
+        #todo-container {
+            width: 50%;
+
+            list-style-type: none;
+            text-align: center;
+
+        }
+
+        .todo-item{
+            margin-top: 10px;;
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            text-align: left;
+            background-color: aliceblue;
+            box-shadow: 2px 5px 2px 2px #888888;
+
+            border-radius: 5px;
+        }
+
+        .finished {
+            text-decoration: line-through;
+        }
+
+        .span-delete {
+            text-decoration: none;
+
+            float: left;
+
+            position: relative;
+            top: 2px;
+            left: 100%;
+            margin-left: -18px; 
+
+            background-color: #F56C6C;
+            width: 16px;
+            height: 16px;
+            border: 1px solid rgb(91, 53, 230);
+            border-radius: 50%;
+
+            font-size: 16px;
+            color: white;
+            line-height: 16px;
+            text-align: center;
+            
+        }
+
+        .input-new {
+            margin-left: 5px;
+            width: 80%;
+        }
+
+        .span-add {
+            text-decoration: none;
+
+            float: left;
+
+            position: relative;
+            top: 2px;
+            left: 100%;
+            margin-left: -18px; 
+
+            background-color: #67C23A;
+            width: 16px;
+            height: 16px;
+            border: 1px solid rgb(91, 53, 230);
+            border-radius: 50%;
+
+            font-size: 16px;
+            color: white;
+            line-height: 16px;
+            text-align: center;
+            
+        }
+    </style>
+</head>
+<body>
+<script>
+    // localStorage.clear();
+    let todoLists = [
+        {
+            note: "需要有一个输入框，可以输入文本并添加到今日计划中",
+            finished: true
+        },
+        {
+            note: "可以将今日计划勾选完成",
+            finished: true
+        },
+        {
+            note: "可以删除指定的计划",
+            finished: true
+        },
+        {
+            note: "数据实现持久化，避免浏览器刷新后数据丢失",
+            finished: true
+        },
+        {
+            note: "等待检查，完善样式",
+            finished: false
+        }
+    ];
+
+    loadFromLocalStorage();
+    refreshDOM();
+
+    function refreshDOM() {
+        let todoContainer;
+        todoContainer = document.getElementById("todo-container");
+        if (todoContainer!== null) {
+            document.body.removeChild(todoContainer);
+        }
+        document.getElementById(todoContainer);
+        todoContainer = document.createElement("ul");
+        todoContainer.id  = "todo-container";
+        document.body.appendChild(todoContainer);
+        // todoContainer.remove();
+        for(let key in todoLists) {
+            let item = todoLists[key];
+            let li = document.createElement("li");
+            // li.className = "todo-item finished";
+            li.className = "todo-item " + (item.finished ? "finished": "");
+
+            let checkbox = document.createElement('input');
+            checkbox.type = "checkbox";
+            checkbox.checked = item.finished;
+            checkbox.onchange = (event)=> {
+                const index = key;
+                todoLists[index].finished = event.target.checked;
+                saveToLocalStorage();
+                refreshDOM();
+            }
+            li.appendChild(checkbox);
+
+            let text = document.createElement("text");
+            text.innerText = item.note;
+            li.appendChild(text);
+
+            let deleteSpan = document.createElement("span");
+            deleteSpan.className = "span-delete";
+            deleteSpan.innerText = "x";
+            deleteSpan.addEventListener("click", ()=>{
+                const index = key;
+                todoLists.splice(index, 1);
+                saveToLocalStorage();
+                refreshDOM();
+            });
+            li.appendChild(deleteSpan);
+            
+
+            todoContainer.appendChild(li);
+        }
+
+        let newTodo = document.createElement("li");
+        newTodo.className = "todo-item todo-new";
+        inputtext = document.createElement("input");
+        inputtext.className = "input-new";
+        inputtext.type = "text";
+        newTodo.appendChild(inputtext);
+        let addSpan = document.createElement("span");
+        addSpan.className = "span-add";
+        addSpan.innerText = "+";
+        addSpan.addEventListener("click", ()=>{
+            let newItem = {
+                note: inputtext.value,
+                finished: false
+            }
+            todoLists.push(newItem);
+            saveToLocalStorage();
+            refreshDOM();
+        });
+        newTodo.appendChild(addSpan);
+        todoContainer.appendChild(newTodo);
+    }
+
+    function loadFromLocalStorage() {
+        let storage = localStorage.getItem("todo-list");
+        if (storage !== null) {
+            todoLists = JSON.parse(storage);
+        }
+        else {
+            alert("Welcomm to use TODO list!");
+        }
+    }
+
+    function saveToLocalStorage() {
+        localStorage.setItem("todo-list", JSON.stringify(todoLists));
+    }
+
+    
+
+
+    
+    
+</script>
+</body>
+</html>

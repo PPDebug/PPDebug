@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<script>
+    const origin = {
+        id: 1,
+        obj: {
+            id: 2
+        }
+    }
+
+    const obj = clone(origin);
+
+    console.log(
+        clone(undefined),
+        clone(null),
+        clone(1),
+        clone('  '),
+        clone({}),
+        clone({id: 1, obj: {id: 2}}),
+    );
+    document.body.innerHTML = `
+    <h1>Result test: </h1>
+    <ul> 
+        <li> parent: ${JSON.stringify(origin)} </li> 
+        <li> child:  ${JSON.stringify(obj)}) </li> 
+        <li> is seperate? ${origin!==obj} </li> 
+    </ul>
+    `;
+
+    function clone(parent) {
+        // 相当于一个缓存
+        const allParents = [];
+        const allChildren = [];
+
+        function _clone(parent) {
+            const child = {};
+            if (parent===null) {
+                return null;
+            }
+
+            if (typeof(parent) !== 'object') {
+                return parent;
+            }
+
+            // 在缓存中查找
+            const index = allParents.indexOf(parent);
+            if (index !==-1) {
+                return allChildren[index];
+            }
+
+            allParents.push(parent);
+            allChildren.push(child);
+
+            for (const key in parent) {
+                const value = parent[key];
+                child[key] = _clone(value);
+            }
+
+            return child;
+        }
+        return _clone(parent);
+    }
+
+</script>
+</body>
+</html>
