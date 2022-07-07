@@ -168,5 +168,9 @@ const foo = `this is a template literal`;
 变量名、函数名、方法名是小驼峰；
 构造函数、类名是大驼峰。
 
+## 链式运算
+[https://juejin.cn/post/7036569099010310174](https://juejin.cn/post/7036569099010310174)
+
+
 
 
