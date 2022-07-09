@@ -65,3 +65,5 @@
 ## 字符串
 * [验证回文串](/coding/algorithm/leetcode/P00125.md)
 * [分割回文串](/coding/algorithm/leetcode/P00131.md)
+* [单词切分](/coding/algorithm/leetcode/P00139.md)
+* [单词切分Ⅱ](/coding/algorithm/leetcode/P00140.md)
