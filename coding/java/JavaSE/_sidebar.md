@@ -1,0 +1,1 @@
+* [基础概念与常识](/coding/java/JavaSE/common-sense.md)
