@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div id="container">
+    <div class="line-right"> 
+      
+      <button id="btn-publish">
+        ⤴️
+         <p class="tooltip">上传</p>
+      </button>
+      <button id="btn-add">
+        ➕
+        <p class="tooltip">添加</p>
+      </button>
+    </div>
+    
+    <dialog id="dialog-add">
+      <div class="label-input">
+            <label for="input-name">姓名</label>
+            <input type="text" id="input-name"></input>
+        </div>
+        <div class="label-input">
+            <label for="input-age">年龄</label>
+            <input type="number" id="input-age"></input>
+        </div>
+      <div class="line-right">
+        <button id="btn-confirm">✅确认</button>
+        <button id="btn-cancel">❎取消</button>
+         
+      </div>
+    </dialog>
+    
+    <table id="table-data">
+      <tr>
+        <th> Name </th>
+        <th> Age </th>
+      </tr>
+    </table>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

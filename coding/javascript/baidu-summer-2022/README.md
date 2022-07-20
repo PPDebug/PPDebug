@@ -16,10 +16,10 @@
 
 ### 必修
 
-* [6.27 开营直播](/coding/javascript/baidu-summer-2022/)
-* [6.29 web前端概论](/coding/javascript/baidu-summer-2022/day-6-29/)
-* [7.1 HTML基础](/coding/javascript/baidu-summer-2022/day-7-01/)
-* [7.4 CSS基础](/coding/javascript/baidu-summer-2022/day-7-04/)
+* 6.27 开营直播
+* 6.29 web前端概论
+* 7.1 HTML基础
+* 7.4 CSS基础
 * 7.6 web布局(上)
 * 7.8 web布局(下)
 * 7.11 javascript基础-1
@@ -31,12 +31,24 @@
 
 ### 选修
 
+### 平时作业
+
+* [x] [day01](/coding/javascript/baidu-summer-2022/day-6-29/)
+* [x] [day02](/coding/javascript/baidu-summer-2022/day-7-01/)
+* [x] [day03](/coding/javascript/baidu-summer-2022/day-7-04/)
+* [x] [day04](/coding/javascript/baidu-summer-2022/day-7-06/)
+* [ ] day05
+* [ ] day06
+* [ ] day07
+* [ ] day08
+* [ ] day09
+* [ ] day10
+
 
 ## 大作业
 
-### 题目一： 基于 Paddle.js WEBGL 计算方案实现人脸关键点检测 SDK
-
-### 题目二： 实现一个简单的 MVVM 框架
+* [ ] 题目一： 基于 Paddle.js WEBGL 计算方案实现人脸关键点检测 SDK
+* [ ] 题目二： 实现一个简单的 MVVM 框架
 
 
 
