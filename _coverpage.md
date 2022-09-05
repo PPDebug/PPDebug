@@ -1,14 +1,11 @@
 ![logo](_media/avatar.jpeg)
 # PengPeng <small>cn</small>
 
-> Peng's personal page
+>Talk is cheap. Show me the code.
 
-- Simple and lightweight
-- No statically build html files
-- Multiple themes
 
 [Github](https://github.com/PPDebug)
-[Getting Started](#PPDebug)
+[Getting Started](README.md?id=PPDebug)
 
 <!-- backgroud image -->
 <!-- ![](_media/bg.png) -->

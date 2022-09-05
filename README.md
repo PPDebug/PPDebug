@@ -1,14 +1,27 @@
-# PPDebug
+# 👽PPDebug
 
-<!-- script:start -->
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=422428345&auto=1&height=66"></iframe>
-<!-- script:end -->
-
-
-> Learning...
-
-## 目录
-
-[filename](_sidebar.md ':include' )
+<img src="https://img.shields.io/github/watchers/ppdebug/ppdebug.github.io"> 
+<img src="https://img.shields.io/github/stars/ppdebug/ppdebug.github.io"> 
+<img src="https://img.shields.io/github/forks/ppdebug/ppdebug.github.io"> 
+<img src="https://img.shields.io/github/followers/ppdebug"> 
+<!-- <img src="https://img.shields.io/github/license/ppdebug/ppdebug.github.io">  -->
 
 
+
+
+## 🖥️ 后端
+### ♨️ Java
+### 💽 数据库
+### 🍃 Spring
+### 🔥 测试
+### ⛓️ 分布式
+### 🤖 CI/CD
+
+## 📱 前端
+### 👾 JavaScript
+### 🟢 Vue
+### 🎨 UI设计
+## 📂 其他
+### 🖊️ 记录
+  
+### 🌐 网站
