@@ -20,7 +20,7 @@
 * 6.29 web前端概论
 * 7.1 HTML基础
 * 7.4 CSS基础
-* 7.6 web布局(上)
+* [7.6 web布局(上)](/coding/javascript/baidu-summer-2022/web-layout.md)
 * 7.8 web布局(下)
 * 7.11 javascript基础-1
 * 7.13 javascript基础-2
@@ -37,12 +37,6 @@
 * [x] [day02](/coding/javascript/baidu-summer-2022/day-7-01/)
 * [x] [day03](/coding/javascript/baidu-summer-2022/day-7-04/)
 * [x] [day04](/coding/javascript/baidu-summer-2022/day-7-06/)
-* [ ] day05
-* [ ] day06
-* [ ] day07
-* [ ] day08
-* [ ] day09
-* [ ] day10
 
 
 ## 大作业
