@@ -74,6 +74,7 @@ try {
 ## 使用 try-with-resources 代替try-catch-finally
 * 适用范围（资源的定义）： 任何实现 java.lang.AutoCloseable或者 java.io.Closeable 的对象
 * 关闭资源和 finally 块的执行顺序： 在 try-with-resources 语句中，任何 catch 或 finally 块在声明的资源关闭后运行
+
 <!-- tabs:start -->
 
 #### **try-catch-finally**
@@ -118,7 +119,6 @@ catch (IOException e) {
     e.printStackTrace();
 }
 ```
-
 
 <!-- tabs:end -->
 
