@@ -1,13 +1,16 @@
 # 👽PPDebug
-<p>
-    <span><img src="https://img.shields.io/github/watchers/ppdebug/ppdebug.github.io"> </span>
-    <span><img src="https://img.shields.io/github/stars/ppdebug/ppdebug.github.io"> </span>
-    <span><img src="https://img.shields.io/github/forks/ppdebug/ppdebug.github.io"> </span>
-    <span><img src="https://img.shields.io/github/followers/ppdebug"> </span>
-    <!-- <span><img src="https://img.shields.io/github/license/ppdebug/ppdebug.github.io"></span> -->
-</p>
 
-> 记得比较杂，主要是自己归纳整理一下，帮助理解记忆。
+![GitHub watchers](https://img.shields.io/github/watchers/ppdebug/ppdebug.github.io)
+![GitHub Repo stars](https://img.shields.io/github/stars/ppdebug/ppdebug.github.io)
+![GitHub forks](https://img.shields.io/github/forks/ppdebug/ppdebug.github.io)
+![GitHub followers](https://img.shields.io/github/followers/ppdebug)
+![GitHub](https://img.shields.io/github/license/ppdebug/ppdebug.github.io)
+![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/ppdebug/blogs)
+![Docker Image Version (latest semver)](https://img.shields.io/docker/v/ppdebug/blogs)
+![Docker Pulls](https://img.shields.io/docker/pulls/ppdebug/blogs)
+
+
+> Talk is cheap. Show me the code.
 
 ## 🧱基础
 ### [🔑 计组](/coding/csapp/)
