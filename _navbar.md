@@ -5,9 +5,8 @@
   <!-- - [⚙️ OS](/coding/os/) -->
   - [⌨️ 算法](/coding/algorithm/)
 * 🖥️[后端](README?id=后端)
-  - [♨️ Java](/coding/java/javaSE/)
+  - [♨️ Java](/coding/java/)
   - [💽 数据库](/coding/database/)
-  - [🍃 Spring](/coding/java/spring/)
   <!-- - [🔥 测试](README?id=测试) -->
   - [⛓️ 分布式](/coding/distribute/)
   <!-- - [🤖 CI/CD](README?id=CI/CD) -->
