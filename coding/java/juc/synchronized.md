@@ -1,6 +1,6 @@
 # synchronized
 
-> Java的一个关键字，更够将代码块/方法锁起来，这是一种互斥锁，即一次只允许一个线程进入被所指的代码块。
+> Java的一个关键字，能够将代码块/方法锁起来，这是一种互斥锁，即一次只允许一个线程进入被所指定的代码块。
 
 ## synchronized锁的对象
 
@@ -11,7 +11,7 @@
 
 ## synchronized的原理
 
-当使用synchronized  修饰方法时，会在flags上给予ACC_SYNCHRONIZED标识(就是将这位置置为1)，可用过javap查看，比如以下方法
+当使用synchronized  修饰方法时，会在flags上给予`ACC_SYNCHRONIZED`标识(就是将这位置置为1)，可用过javap查看，比如以下方法
 ```java
 private synchronized void syncMethod() {
     System.out.println("syncMethod");
