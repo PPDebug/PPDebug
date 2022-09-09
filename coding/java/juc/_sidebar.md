@@ -2,3 +2,5 @@
 * [synchronized](/coding/java/juc/synchronized.md)
 * [AQS & ReentrantLock](/coding/java/juc/AQS_ReentrantLock.md)
 * [线程池](/coding/java/juc/threadPool.md)
+* [Java引用](/coding/java/juc/reference.md)
+* [ThreadLocal](/coding/java/juc/threadLocal.md)
