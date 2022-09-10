@@ -11,11 +11,12 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
       - name: gitee-repository
         path: /drone/src/.git
     commands:
-      - ll -a
+      - ls -a
       - echo ----------------- copy start -----------------
       # 将打包后的jar包，拷贝到 /root/hello-mogu 目录
       - cp -r !(src/.git)  /usr/share/nginx/html
       - echo ----------------- copy end -------------------
+      - ls -a
 
 
 volumes: # 定义流水线挂载目录，用于共享数据
