@@ -7,18 +7,21 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
     image: alpine # 定义创建容器的Docker镜像
     volumes: # 将容器内目录挂载到宿主机，仓库需要开启Trusted设置
       - name: nginx-html
-        path: /usr/share/nginx/html # 将应用打包好的Jar和执行脚本挂载出来
-      # - name: gitee-repository
-      #   path: /drone
+        path: /usr/share/nginx/html
+      - name: gitee-repository
+        path: /drone/src/.git
     commands:
-      - ls
+      - ll -a
+      - echo ----------------- copy start -----------------
       # 将打包后的jar包，拷贝到 /root/hello-mogu 目录
-      - cp -r /drone  /usr/share/nginx/html
+      - cp -r !(src/.git)  /usr/share/nginx/html
+      - echo ----------------- copy end -------------------
+
 
 volumes: # 定义流水线挂载目录，用于共享数据
   - name: nginx-html
     host:
-      path: /mydata/nginx/html   #jar包目录可以修改从宿主机中挂载的目录
+      path: /mydata/nginx/html   #可以修改从宿主机中挂载的目录
   - name: gitee-repository
     host:
       path: /root/git-repository/gitee/ppdebug/.git
