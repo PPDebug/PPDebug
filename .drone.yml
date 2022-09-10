@@ -14,7 +14,7 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
       - ls --full-time -a
       - echo ----------------- copy start -----------------
       # 将打包后的jar包，拷贝到 /root/hello-mogu 目录
-      - \cp -r !(.git)  /usr/share/nginx/html
+      - \cp -r * /usr/share/nginx/html
       - echo ----------------- copy end -------------------
       - ls --full-time -a /usr/share/nginx/html
 
