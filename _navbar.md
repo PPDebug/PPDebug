@@ -9,7 +9,7 @@
   - [💽 数据库](/coding/database/)
   <!-- - [🔥 测试](README?id=测试) -->
   - [⛓️ 分布式](/coding/distribute/)
-  <!-- - [🤖 CI/CD](README?id=CI/CD) -->
+  - [🤖 CI/CD](/coding/CICD/)
 * 📱[前端](README?id=前端)
   - [👾 JavaScript](/coding/javascript/js/)
   <!-- - [🟢 Vue](README?id=Vue) -->
