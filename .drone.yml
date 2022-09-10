@@ -1,0 +1,19 @@
+kind: pipeline # 定义对象类型，还有secret和signature两种类型
+type: docker # 定义流水线类型，还有kubernetes、exec、ssh等类型
+name: doker # 定义流水线名称
+
+steps: # 定义流水线执行步骤，这些步骤将顺序执行
+  - name: copyfile # 流水线名称
+    image: alpine # 定义创建容器的Docker镜像
+    volumes: # 将容器内目录挂载到宿主机，仓库需要开启Trusted设置
+      - name: nginx-html
+        path: /usr/share/nginx/html # 将应用打包好的Jar和执行脚本挂载出来
+    commands:
+      - ls
+      # 将打包后的jar包，拷贝到 /root/hello-mogu 目录
+      - cp -f /drone  /usr/share/nginx/html
+
+volumes: # 定义流水线挂载目录，用于共享数据
+  - name: nginx-html
+    host:
+      path: /mydata/nginx/html   #jar包目录可以修改从宿主机中挂载的目录
