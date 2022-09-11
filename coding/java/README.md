@@ -6,6 +6,10 @@
 
 [目录](JavaSE/_sidebar.md ":include")
 
+## ☑️ Java集合
+
+[目录](collection/_sidebar.md ":include")
+
 ## 🥡JVM相关
 
 [目录](jvm/_sidebar.md ":include")
