@@ -1,4 +1,5 @@
-# 数据库
+# [💽 数据库](/coding/database/)
 
-## redis
+## [redis](/coding/database/redis/)
+
 

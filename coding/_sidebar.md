@@ -1,4 +1,5 @@
-* [深入理解计算机系统](/coding/csapp/)
-* [算法](/coding/algorithm/)
-* [Javascript](/coding/javascript/)
-* [Java](/coding/java/)
+  - [♨️ Java](/coding/java/)
+  - [💽 数据库](/coding/database/)
+  <!-- - [🔥 测试](README?id=测试) -->
+  - [⛓️ 分布式](/coding/distribute/)
+  - [🤖 CI/CD](/coding/CICD/)
