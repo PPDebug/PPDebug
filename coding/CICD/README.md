@@ -1,4 +1,7 @@
-# 🤖 持续继承持续部署
+# 🤖 持续集成持续部署
 
+> CI/CD 是一种通过在应用开发阶段引入自动化来频繁向客户交付应用的方法。CI/CD 的核心概念是持续集成、持续交付和持续部署。CI/CD 可让持续自动化和持续监控贯穿于应用的整个生命周期（从集成和测试阶段，到交付和部署）。
 
-* [🐝Drone](/coding/CICD/drone.md): 轻量级Jenkins可以占用少量资源，实现软件的流水线操作，并且可以轻松的和Gitlab、Gitee、Github集成.
+## 常用工具
+
+- [🐝Drone](/coding/CICD/drone.md): 轻量级Jenkins可以占用少量资源，实现软件的流水线操作，并且可以轻松的和Gitlab、Gitee、Github集成.
