@@ -6,4 +6,4 @@
 - [redis 布隆过滤器](/coding/database/redis/BloomFilter.md)
 - [redis 集群](/coding/database/redis/RedisCluster.md)
 - [redis 事务](/coding/database/redis/Transaction.md)
-
+- [redis 做缓存](/coding/database/redis/Cache.md)
