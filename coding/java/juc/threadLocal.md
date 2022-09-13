@@ -92,7 +92,7 @@ static class Entry extends WeakReference<ThreadLocal<?>> {
     }
 }
 ```
-Entry实现了WeakReference，这意味着，当只存在Entry的引用，value对象会在GC时被回收。
+Entry实现了WeakReference，这意味着，当只存在Entry的引用，<del>value对象会在GC时被回收</del>弱引用不能保证value被回收，只能保证在垃圾回收时没有调用remove()的ThreadLocal对应的entry中key置为null，实际的value的回收是set或get时遇到key==null时自动进行的。
 
 在这里不探究ThreadLocalMap 的table的扩容、哈希碰撞的处理等问题，简单看一个getEntry方法
 ```java
@@ -101,7 +101,7 @@ private Entry getEntry(ThreadLocal<?> key) {
     Entry e = table[i];
     if (e != null && e.get() == key)
         return e;
-    else
+    els
         return getEntryAfterMiss(key, i, e);
 }
 ```
@@ -152,7 +152,7 @@ private void remove(ThreadLocal<?> key) {
 
 这是阿里巴巴规范上的
 
-如果不显示的回收ThreadLocal对象。那么entry中的key一直不为null，导致entry无法被回收，直到下一次GC保底的将ThreadLocal设置为null，才能够进行对应entry的回收工作。
+如果不显示的回收ThreadLocal对象。那么entry中的key一直不为null，导致entry无法被回收，直到下一次GC保底的将ThreadLocal设置为null，才能够进行对应entry的回收工作，同时set时也会导致hash碰撞加剧，相反手动调用remove方法，运气好的或可以在下一次set时就遇到key为null，然后就可以清除了。
 
 
 <!-- 内存占用加剧，直到发生FULL GC，利用weakReference的机制来清除。这样的程序虽然可以运行，但是会频繁触发FULL GC，影响性能。 -->
