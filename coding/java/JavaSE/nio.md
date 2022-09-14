@@ -328,3 +328,125 @@ public class TimeServer {
 
 
 ```
+
+## AIO 
+```java
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
+import java.nio.channels.AsynchronousServerSocketChannel;
+import java.nio.channels.AsynchronousSocketChannel;
+import java.nio.channels.CompletionHandler;
+import java.nio.charset.StandardCharsets;
+import java.util.Date;
+import java.util.concurrent.CountDownLatch;
+
+/**
+ * AIO
+ * @author pengpeng
+ */
+public class TimeServer {
+    public static void main(String[] args) {
+        int port = 8080;
+        if (args!=null && args.length>0) {
+            port = Integer.parseInt(args[0]);
+        }
+        new Thread(new AsyncTimeServerHandler(port), "AsyncTimerServerHandler-001").start();
+    }
+
+    static class AsyncTimeServerHandler implements Runnable {
+
+        AsynchronousServerSocketChannel serverSocketChannel;
+        CountDownLatch latch;
+
+        public AsyncTimeServerHandler(int port) {
+            try {
+                serverSocketChannel = AsynchronousServerSocketChannel.open();
+                serverSocketChannel.bind(new InetSocketAddress(port));
+                System.out.println("This time server is start in port: " + port);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        @Override
+        public void run() {
+            latch = new CountDownLatch(1);
+            serverSocketChannel.accept(this, new AcceptCompletionHandler());
+            try {
+                System.out.println("This thread doing something else...");
+                latch.await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        /** 新连接建立的回调 */
+        static class AcceptCompletionHandler implements CompletionHandler<AsynchronousSocketChannel, AsyncTimeServerHandler> {
+            @Override
+            public void completed(AsynchronousSocketChannel channel, AsyncTimeServerHandler timeServerHandler) {
+                timeServerHandler.serverSocketChannel.accept(timeServerHandler, this);
+                ByteBuffer buffer = ByteBuffer.allocate(1024);
+                channel.read(buffer, buffer, new ReadCompletionHandler(channel));
+                System.out.println("Connection created: " + channel);
+            }
+
+            @Override
+            public void failed(Throwable exc, AsyncTimeServerHandler attachment) {
+                exc.printStackTrace();
+                attachment.latch.countDown();
+            }
+        }
+    }
+
+    /** 接受消息的回调 */
+    static class ReadCompletionHandler implements CompletionHandler<Integer, ByteBuffer> {
+        private final AsynchronousSocketChannel channel;
+
+        public ReadCompletionHandler(AsynchronousSocketChannel channel) {
+            this.channel = channel;
+        }
+
+        @Override
+        public void completed(Integer result, ByteBuffer buffer) {
+            buffer.flip();
+            byte[] body = new byte[buffer.remaining()];
+            buffer.get(body);
+            String req = new String(body, StandardCharsets.UTF_8);
+            System.out.print("This time server receive order: " + req);
+            String currentTime = "QUERY TIME ORDER".equalsIgnoreCase(req.trim()) ? new Date(System.currentTimeMillis()).toString() : "BAD ORDER";
+            String response = currentTime + "\n";
+            byte[] bytes = response.getBytes();
+            ByteBuffer writeBuffer = ByteBuffer.allocate(bytes.length);
+            writeBuffer.put(bytes);
+            writeBuffer.flip();
+            channel.write(writeBuffer, writeBuffer, new CompletionHandler<Integer, ByteBuffer>() {
+                @Override
+                public void completed(Integer result, ByteBuffer buffer) {
+                    if (buffer.hasRemaining()) {
+                        channel.write(writeBuffer, writeBuffer, this);
+                    }
+                    else {
+                        System.out.println("Send success!");
+                    }
+                }
+
+                @Override
+                public void failed(Throwable exc, ByteBuffer buffer) {
+                    try {
+                        System.out.println("Connection closed: " + channel);
+                        channel.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
+
+        @Override
+        public void failed(Throwable exc, ByteBuffer buffer) {
+            System.out.println("Connection closed");
+        }
+    }
+}
+```
