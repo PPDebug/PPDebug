@@ -9,7 +9,7 @@
 2. [多数元素](/coding/algorithm/leetcode/P00169.md)
 3. [搜索二维矩阵Ⅱ](/coding/algorithm/leetcode/P00240.md)
 4. [合并两个有序数组](/coding/algorithm/leetcode/P00088.md)
-5. [鸡蛋掉落]
+5. [鸡蛋掉落](/coding/algorithm/leetcode/P00887.md)
 
 ## 主题要点
 
