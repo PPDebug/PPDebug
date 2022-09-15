@@ -69,4 +69,7 @@
 * [单词切分Ⅱ](/coding/algorithm/leetcode/P00140.md)
 * [实现Trie(前缀树)](/coding/algorithm/leetcode/P00208.md)
 * [单词搜索 II](/coding/algorithm/leetcode/P00212.md)
+* [有效的字母异位数](/coding/algorithm/leetcode/P00242.md)
+* [字符串中的第一个唯一字符](/coding/algorithm/leetcode/P00387.md)
+* [反转字符串](/coding/algorithm/leetcode/P00344.md)
 
