@@ -84,3 +84,31 @@
 * [递增的三元子序列](/coding/algorithm/leetcode/P00334.md)
 * [搜索二维矩阵](/coding/algorithm/leetcode/P00240.md)
 * [除自身以外数组的乘积](/coding/algorithm/leetcode/P00238.md)
+
+## 堆、栈和队列
+
+## 链表
+
+## 哈希与映射
+
+## 树
+
+## 排序和检索
+
+## 动态规划
+
+## 图论
+
+## 数学 & 位运算
+
+- [只出现一次的数字](/coding/algorithm/leetcode/P00136.md)
+- [直线上最多的点](/coding/algorithm/leetcode/P00149.md)
+- [分数到小数](/coding/algorithm/leetcode/P00166.md)
+- [阶乘后的零](/coding/algorithm/leetcode/P00172.md)
+- [颠倒二进制位](/coding/algorithm/leetcode/P00190.md)
+- [位1的个数](/coding/algorithm/leetcode/P00191.md)
+- [计数质数](/coding/algorithm/leetcode/P00204.md)
+- [缺失数字](/coding/algorithm/leetcode/P00268.md)
+- [3的幂](/coding/algorithm/leetcode/P00326.md)
+
+## 模拟面试
