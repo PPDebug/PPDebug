@@ -73,3 +73,14 @@
 * [字符串中的第一个唯一字符](/coding/algorithm/leetcode/P00387.md)
 * [反转字符串](/coding/algorithm/leetcode/P00344.md)
 
+## 数组
+
+* [乘积最大子元素](/coding/algorithm/leetcode/P0052.md)
+* [多数元素](/coding/algorithm/leetcode/P00169.md)
+* [旋转数组](/coding/algorithm/leetcode/P00189.md)
+* [移动零](/coding/algorithm/leetcode/P00283.md)
+* [打乱数组](/coding/algorithm/leetcode/P00234.md)
+* [两个数组的交集II](/coding/algorithm/leetcode/P00350.md)
+* [递增的三元子序列](/coding/algorithm/leetcode/P00334.md)
+* [搜索二维矩阵](/coding/algorithm/leetcode/P00240.md)
+* [除自身以外数组的乘积](/coding/algorithm/leetcode/P00238.md)
