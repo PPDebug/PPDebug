@@ -1,5 +1,8 @@
 # Java
 
+- [Java Specification Requests](https://jcp.org/en/jsr/platform)
+- [Java New Feature](https://dev.java/)
+
 ## 🧱Java基础
 
 > 万丈高楼平地起，基础一定要打牢：
